@@ -9,6 +9,9 @@ services:
       - db
     env_file:
       - env
+    volumes:
+      - www-data:/var/www/html
+
   db:
     image: mariadb
     volumes:
@@ -23,3 +26,4 @@ services:
       - db     
 volumes:
   db-data:
+  www-data:
