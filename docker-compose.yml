@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   web:
-    image: alexcheng/magento
+    build: .
     ports:
       - "80:80"
     links:
@@ -10,9 +10,9 @@ services:
     env_file:
       - env
   db:
-    image: mysql:5.6.23
+    image: mariadb
     volumes:
-      - db-data:/var/lib/mysql/data
+      - db-data:/var/lib/mysql
     env_file:
       - env
   phpmyadmin:
@@ -22,4 +22,4 @@ services:
     links:
       - db     
 volumes:
-  db-data:   
+  db-data:
